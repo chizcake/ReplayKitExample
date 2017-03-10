@@ -13,6 +13,8 @@
 		CC8735E31E73074900AA66B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8735E11E73074900AA66B4 /* LaunchScreen.storyboard */; };
 		CC8735EC1E73081100AA66B4 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8735EB1E73081100AA66B4 /* CleanroomLogger.framework */; };
 		CC8735F01E73096700AA66B4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735EF1E73096700AA66B4 /* MasterViewController.swift */; };
+		CC8735F31E730BFA00AA66B4 /* CustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735F21E730BFA00AA66B4 /* CustomTools.swift */; };
+		CC8735F51E730D1200AA66B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735F41E730D1200AA66B4 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CC8735E41E73074900AA66B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8735EB1E73081100AA66B4 /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = Carthage/Build/iOS/CleanroomLogger.framework; sourceTree = "<group>"; };
 		CC8735EF1E73096700AA66B4 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		CC8735F21E730BFA00AA66B4 /* CustomTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTools.swift; sourceTree = "<group>"; };
+		CC8735F41E730D1200AA66B4 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		CC8735D71E73074900AA66B4 /* ReplayKitExampleStarter */ = {
 			isa = PBXGroup;
 			children = (
+				CC8735F11E730BD800AA66B4 /* Utilities */,
 				CC8735EE1E73092B00AA66B4 /* View Controllers */,
 				CC8735D81E73074900AA66B4 /* AppDelegate.swift */,
 				CC8735DC1E73074900AA66B4 /* Main.storyboard */,
@@ -80,8 +85,17 @@
 			isa = PBXGroup;
 			children = (
 				CC8735EF1E73096700AA66B4 /* MasterViewController.swift */,
+				CC8735F41E730D1200AA66B4 /* SearchViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CC8735F11E730BD800AA66B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CC8735F21E730BFA00AA66B4 /* CustomTools.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC8735F01E73096700AA66B4 /* MasterViewController.swift in Sources */,
+				CC8735F31E730BFA00AA66B4 /* CustomTools.swift in Sources */,
+				CC8735F51E730D1200AA66B4 /* SearchViewController.swift in Sources */,
 				CC8735D91E73074900AA66B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
