@@ -13,7 +13,7 @@
         <!--Locations-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MasterViewController" customModule="ReplayKitExampleStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MasterViewController" customModule="ReplayKitExampleComplete" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -79,7 +79,7 @@
         <!--Record-->
         <scene sceneID="WGE-Bk-VUz">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Sqo-HD-lYL" customClass="RecordViewController" customModule="ReplayKitExampleStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Sqo-HD-lYL" customClass="RecordViewController" customModule="ReplayKitExampleComplete" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Sd-4B-TSK"/>
                         <viewControllerLayoutGuide type="bottom" id="rQH-xe-Tsl"/>
@@ -100,8 +100,15 @@
                             <constraint firstItem="KWJ-WK-4Ze" firstAttribute="leading" secondItem="tIC-W1-Uaa" secondAttribute="leading" id="Wo5-fO-gZu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Record" id="wKr-Ou-dpd"/>
+                    <navigationItem key="navigationItem" title="Record" id="wKr-Ou-dpd">
+                        <barButtonItem key="rightBarButtonItem" title="Start Recording" id="3C6-vi-fUO">
+                            <connections>
+                                <action selector="barButtonAction:" destination="Sqo-HD-lYL" id="cGW-lT-NFf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="barButton" destination="3C6-vi-fUO" id="vyY-Pn-Do6"/>
                         <outlet property="mapView" destination="KWJ-WK-4Ze" id="2OO-Yr-h5f"/>
                     </connections>
                 </viewController>
@@ -112,7 +119,7 @@
         <!--Search Location-->
         <scene sceneID="LOW-dN-bpY">
             <objects>
-                <tableViewController id="eGe-KG-j1S" customClass="SearchViewController" customModule="ReplayKitExampleStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eGe-KG-j1S" customClass="SearchViewController" customModule="ReplayKitExampleComplete" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tnJ-fi-Yha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
