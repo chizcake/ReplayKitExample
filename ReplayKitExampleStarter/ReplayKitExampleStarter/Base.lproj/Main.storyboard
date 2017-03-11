@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,11 +55,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="WL6-L3-a9x">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RPf-SK-ba0">
-                            <connections>
-                                <segue destination="l96-gy-v8c" kind="presentation" identifier="ShowSearchViewController" id="By5-IW-Thr"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Record" id="kFI-hO-f20">
+                                <connections>
+                                    <segue destination="Sqo-HD-lYL" kind="show" identifier="ShowRecordViewController" id="LL9-lg-SB1"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="RPf-SK-ba0">
+                                <connections>
+                                    <segue destination="l96-gy-v8c" kind="presentation" identifier="ShowSearchViewController" id="By5-IW-Thr"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CBb-7E-S82" id="oA8-WD-waj"/>
@@ -67,6 +75,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="604" y="778"/>
+        </scene>
+        <!--Record-->
+        <scene sceneID="WGE-Bk-VUz">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Sqo-HD-lYL" customClass="RecordViewController" customModule="ReplayKitExampleStarter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Sd-4B-TSK"/>
+                        <viewControllerLayoutGuide type="bottom" id="rQH-xe-Tsl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tIC-W1-Uaa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-WK-4Ze">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rQH-xe-Tsl" firstAttribute="top" secondItem="KWJ-WK-4Ze" secondAttribute="bottom" id="Jmo-w3-pC2"/>
+                            <constraint firstItem="KWJ-WK-4Ze" firstAttribute="top" secondItem="0Sd-4B-TSK" secondAttribute="bottom" id="Pdz-Cu-iKl"/>
+                            <constraint firstAttribute="trailing" secondItem="KWJ-WK-4Ze" secondAttribute="trailing" id="SvG-nO-dfx"/>
+                            <constraint firstItem="KWJ-WK-4Ze" firstAttribute="leading" secondItem="tIC-W1-Uaa" secondAttribute="leading" id="Wo5-fO-gZu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Record" id="wKr-Ou-dpd"/>
+                    <connections>
+                        <outlet property="mapView" destination="KWJ-WK-4Ze" id="2OO-Yr-h5f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYJ-Df-eT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470" y="1202"/>
         </scene>
         <!--Search Location-->
         <scene sceneID="LOW-dN-bpY">

@@ -15,6 +15,7 @@
 		CC8735F01E73096700AA66B4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735EF1E73096700AA66B4 /* MasterViewController.swift */; };
 		CC8735F31E730BFA00AA66B4 /* CustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735F21E730BFA00AA66B4 /* CustomTools.swift */; };
 		CC8735F51E730D1200AA66B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735F41E730D1200AA66B4 /* SearchViewController.swift */; };
+		CC8735F71E73B7F900AA66B4 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8735F61E73B7F900AA66B4 /* RecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CC8735EF1E73096700AA66B4 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CC8735F21E730BFA00AA66B4 /* CustomTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTools.swift; sourceTree = "<group>"; };
 		CC8735F41E730D1200AA66B4 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CC8735F61E73B7F900AA66B4 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				CC8735EF1E73096700AA66B4 /* MasterViewController.swift */,
 				CC8735F41E730D1200AA66B4 /* SearchViewController.swift */,
+				CC8735F61E73B7F900AA66B4 /* RecordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				CC8735F01E73096700AA66B4 /* MasterViewController.swift in Sources */,
 				CC8735F31E730BFA00AA66B4 /* CustomTools.swift in Sources */,
+				CC8735F71E73B7F900AA66B4 /* RecordViewController.swift in Sources */,
 				CC8735F51E730D1200AA66B4 /* SearchViewController.swift in Sources */,
 				CC8735D91E73074900AA66B4 /* AppDelegate.swift in Sources */,
 			);
@@ -364,6 +368,7 @@
 				CC8735E91E73074900AA66B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

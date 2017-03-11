@@ -29,8 +29,9 @@ class MasterViewController: UIViewController {
 		if segue.identifier == "ShowSearchViewController" {
 			let controller = (segue.destination as! UINavigationController).topViewController as! SearchViewController
 			controller.delegate = self
-		} else {
-			Log.warning?.message("Cannot find identifier")
+		} else if segue.identifier == "ShowRecordViewController" {
+			let controller = segue.destination as! RecordViewController
+			controller.placemarks = self.placemarks
 		}
 	}
 }
