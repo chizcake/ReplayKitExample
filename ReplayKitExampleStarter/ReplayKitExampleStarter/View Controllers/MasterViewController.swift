@@ -52,6 +52,14 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		return cell
 	}
+	
+	// MARK: - UITableView Delegate
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			self.placemarks.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+	}
 }
 
 extension MasterViewController: SearchViewControllerDelegate {
