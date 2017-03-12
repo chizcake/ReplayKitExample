@@ -2,10 +2,17 @@
 2017-03-11
 
 이번 포스트에서는 **ReplayKit**이라는 Framework를 이용해 스크린을 녹화하고 녹화한 영상을 공유하는 방법에 대해서 알려드리고자 합니다. ReplayKit은 [WWDC 2015 Keynote](https://developer.apple.com/videos/play/wwdc2015/101/?time=3931)에서 처음 발표가 된 Framework입니다. WWDC Keynote를 보면 ReplayKit Framework는 본래 사용자가 자신의 게임 플레이를 녹화하거나 방송을 할 수 있도록 지원하기 위해 만들어졌습니다. 그러나 꼭 게임 플레이만 녹화하라는 법이 있나요?
+
+>>WWDC 키노트 외에 ReplyKit을 설명하는 비디오 소개 & 링크
+
+
 그래서 이번 포스트에서는 ReplayKit에서 제공하는 녹화와 방송 기능 중에서 **녹화** 기능에 대해서 알아보고, 이를 이용해 움직이는 지도를 녹화하는 간단한 예제를 작성해보고자 합니다.
 
 ### 시작하기에 앞서
 여러분이 ReplayKit의 사용법을 익히실 수 있도록 초기 예제 프로젝트와 완성된 프로젝트를 [Github](https://github.com/chizcake/ReplayKitExample)에 올려놨습니다. 초기 예제 프로젝트(ReplayKitExampleStarter)를 열어 포스트에 올려놓은 방법을 따라하며 프로젝트를 완성하셔도 좋고, 완성된 프로젝트(ReplayKitExampleComplete)를 참고해서 ReplayKit의 녹화 기능이 어떻게 동작하는지 한 눈에 보셔도 좋을 것 같습니다.
+
+>> 예제 프로젝트를 따로 만들어 준 것 너무 좋아요~! 
+>> 추가적으로 Memoravel의 기능 중 여기에 해당하는 부분의 동영상을 첨부하고 이 코드가 이런식으로 활용되었다는 것을 알려주면 더 좋을 것 같네요.
 
 ### 예제 프로젝트에 대한 설명
 예제 프로젝트는 다음과 같은 프로세스를 가집니다.
@@ -60,6 +67,11 @@ Target method를 다음과 같이 작성하면, 위에 보시는 것과 같이 �
 ### Step 2 - 녹화 시작하기
 지금부터는 ReplayKit을 사용하기 때문에 코드 상단에 `import ReplayKit` 을 입력해야 합니다. 우선, `startRecording() `메소드를 구현해 보겠습니다. 
 
+>>RPScreenRecorder에 대한 설명. PreviewViewController와의 관계. 오버뷰를 다이어그램으로 제작.
+ReplayKit 클래스 레퍼런스에 대한 링크
+가이드라인이 있으면 연결.
+
+
 ```swift
 class RecordViewController: UIViewController {
 	// MARK: - Properties
@@ -88,6 +100,11 @@ class RecordViewController: UIViewController {
 ```
 
 녹화가 시작되었을 때 지도가 움직이도록 하는 `startAnimatingMap()` 메소드와 지도가 모두 움직이고 난 후에 호출될 `stopAnimatingMap()` 메소드를 구현해 보겠습니다.
+
+>>placemarks 에 어떤 데이터가 있는지?, 어떻게 만들어진 데이터인지에 대한 설명이 필요합니다.
+showLocationOnMap(index:) 함수는 어떤 역할을 하는지 대강이라도 알려주면 좋을 듯. ( 자세한 설명은 이 블로그의 내용에 적당하지 않다는 데 동의합니다)
+
+
 
 ```swift
 class RecordViewController: UIViewController {
