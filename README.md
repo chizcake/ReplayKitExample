@@ -207,7 +207,7 @@ func stopRecording() {
 extension RecordViewController: RPPreviewViewControllerDelegate {
 	func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
 		// 8. PreviewViewController에서 작업이 끝나면 화면을 MasterViewController로 이동시킵니다.
-		previewController.dismiss(animated: true) { 
+		previewController.dismiss(animated: true) {
 			let _ = self.navigationController?.popViewController(animated: true)
 		}
 	}
@@ -223,26 +223,37 @@ extension RecordViewController: RPPreviewViewControllerDelegate {
 
 ```swift
 class RecordViewController: UIViewController {
-	// MARK: - Properties
-	...
-	// 9. 녹화가 시작되면 Status bar를 감춥니다.
-	override var prefersStatusBarHidden: Bool {
-		return (self.navigationController?.isNavigationBarHidden)!
-	}
+    // MARK: - Properties
+    ...
+    // 9. 녹화가 시작되면 Status bar를 감춥니다.
+    override var prefersStatusBarHidden: Bool {
+        return (self.navigationController?.isNavigationBarHidden)!
+    }
 
-	...
-	func startRecording() {
-		...
-		// 10. 녹화가 시작되면 Navigation Bar를 숨겨줍니다.
-		self.navigationController?.isNavigationBarHidden = true
-		...
-	}
+    ...
+    func startRecording() {
+        ...
+        // 10. 녹화가 시작되면 Navigation Bar를 숨겨줍니다.
+        self.navigationController?.isNavigationBarHidden = true
+        ...
+    }
 
-	func stopRecording() {
-		...
-		// 11. 녹화가 종료되면 Navigation Bar를 원상태로 복구합니다.
-		self.navigationController?.isNavigationBarHidden = false
-	}
+    func stopRecording() {
+        ...
+        // 11. 녹화가 종료되면 Navigation Bar를 원상태로 복구합니다.
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isRecording {
+            // 녹화중에 화면을 터치하면 숨겨둔 navigation bar를 다시 보여줍니다.
+            if (navigationController?.isNavigationBarHidden)! {
+                navigationController?.isNavigationBarHidden = false
+            } else {
+                navigationController?.isNavigationBarHidden = true
+            }
+        }
+    }
 }
 ```
 
