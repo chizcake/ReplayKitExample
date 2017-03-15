@@ -159,31 +159,44 @@ class RecordViewController: UIViewController {
 ```swift
 func stopRecording() {
 	let recorder = RPScreenRecorder.shared()
-	
-	if isRecording {
-		// 7-1. 사용자가 녹화 중간에 녹화를 종료하는 경우
-		timer?.invalidate()
-		timer = nil
-		currentLocation = 0
-		recorder.stopRecording(handler: { (previewController, recordingError) in
-			if let error = recordingError {
-				Log.error?.message(error.localizedDescription)
-			}
-		})
-	} else {
-		// 7-2. 지도가 모두 움직이고, 정상적으로 녹화를 종료하는 경우
-		recorder.stopRecording(handler: { (previewController, recordingError) in
-			if let error = recordingError {
-				Log.error?.message(error.localizedDescription)
-			} else {
-				// 7-3. 녹화 결과를 확인할 PreviewViewController를 Modal로 보여줍니다.
-				if let controller = previewController {
-					self.present(controller, animated: true, completion: nil)
-				}
-			}
-		})
-	}
-	barButton.title = "Start Recording"
+		
+    if isRecording {
+        // 7-1. 사용자가 녹화 중간에 녹화를 종료하는 경우
+        Log.warning?.message("Stop recording unexpectedly")
+        recorder.stopRecording(handler: { (previewController, recordingError) in
+            if let error = recordingError {
+                Log.error?.message(error.localizedDescription)
+            } else {
+                // 현재 녹화되고 있던 내용을 모두 버립니다.
+                recorder.discardRecording {
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    self.currentLocation = 0
+                }
+            }
+        })
+    } else {
+        // 7-2. 지도가 모두 움직이고, 정상적으로 녹화를 종료하는 경우
+        Log.info?.message("Stop recording normally")
+        recorder.stopRecording(handler: { (previewController, recordingError) in
+            if let error = recordingError {
+                Log.error?.message(error.localizedDescription)
+            } else {
+                // 7-3. 녹화 결과를 확인할 PreviewViewController를 Modal로 보여줍니다.
+                if let controller = previewController {
+                    controller.previewControllerDelegate = self
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    Log.warning?.message("There's no PreviewController")
+                }
+            }
+        })
+    }
+
+    // 11. 녹화가 종료되면 Navigation Bar를 원상태로 복구합니다.
+    self.navigationController?.isNavigationBarHidden = false
+    barButton.title = "Start Recording"
+    showLocationOnMap(index: 0)
 }
 ```
 
