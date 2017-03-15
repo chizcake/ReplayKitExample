@@ -62,6 +62,17 @@ class RecordViewController: UIViewController {
 			stopRecording()
 		}
 	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if isRecording {
+			// 녹화중에 화면을 터치하면 숨겨둔 navigation bar를 다시 보여줍니다.
+			if (navigationController?.isNavigationBarHidden)! {
+				navigationController?.isNavigationBarHidden = false
+			} else {
+				navigationController?.isNavigationBarHidden = true
+			}
+		}
+	}
 }
 
 extension RecordViewController: RPPreviewViewControllerDelegate {
@@ -94,12 +105,16 @@ extension RecordViewController: RPPreviewViewControllerDelegate {
 		if isRecording {
 			// 7-1. 사용자가 녹화 중간에 녹화를 종료하는 경우
 			Log.warning?.message("Stop recording unexpectedly")
-			timer?.invalidate()
-			timer = nil
-			currentLocation = 0
 			recorder.stopRecording(handler: { (previewController, recordingError) in
 				if let error = recordingError {
 					Log.error?.message(error.localizedDescription)
+				} else {
+					// 현재 녹화되고 있던 내용을 모두 버립니다.
+					recorder.discardRecording {
+						self.timer?.invalidate()
+						self.timer = nil
+						self.currentLocation = 0
+					}
 				}
 			})
 		} else {
@@ -123,6 +138,7 @@ extension RecordViewController: RPPreviewViewControllerDelegate {
 		// 11. 녹화가 종료되면 Navigation Bar를 원상태로 복구합니다.
 		self.navigationController?.isNavigationBarHidden = false
 		barButton.title = "Start Recording"
+		showLocationOnMap(index: 0)
 	}
 	
 	// MARK: - Automatically Animates Map

@@ -14,6 +14,7 @@ class MasterViewController: UIViewController {
 
 	// MARK: - Properties
 	var placemarks = [MKPlacemark]()
+	@IBOutlet weak var recordButton: UIBarButtonItem!
 	@IBOutlet weak var tableView: UITableView!
 	
 	// MARK: - Life Cycle of VC
@@ -22,6 +23,7 @@ class MasterViewController: UIViewController {
 
 		self.tableView.delegate = self
 		self.tableView.dataSource = self
+		self.recordButton.isEnabled = false
 	}
 
 	// MARK: - Segues
@@ -59,6 +61,8 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
 		if editingStyle == .delete {
 			self.placemarks.remove(at: indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .automatic)
+			
+			if self.placemarks.count == 0 { self.recordButton.isEnabled = false }
 		}
 	}
 }
@@ -66,6 +70,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
 extension MasterViewController: SearchViewControllerDelegate {
 	func didSelectLocation(_ placemark: MKPlacemark) {
 		self.placemarks.append(placemark)
+		self.recordButton.isEnabled = true
 		self.tableView.reloadData()
 	}
 }

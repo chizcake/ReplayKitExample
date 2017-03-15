@@ -368,6 +368,7 @@
 				CC8736151E73CE0500AA66B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
