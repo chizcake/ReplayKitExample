@@ -121,7 +121,12 @@ class RecordViewController: UIViewController {
 		}
 		
 		// 3. 3초에 한 번씩 지도가 움직일 수 있도록 타이머를 설정해줍니다.
-		timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(animatesMap), userInfo: nil, repeats: true)
+		timer = Timer.scheduledTimer(
+                                    timeInterval: 3.0, 
+                                    target: self, 
+                                    selector: #selector(animatesMap), 
+                                    userInfo: nil, 
+                                    repeats: true)
 	}
 	
 	func animatesMap() {
