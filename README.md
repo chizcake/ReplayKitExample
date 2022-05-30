@@ -1,5 +1,5 @@
 # ReplayKitExample
-> ReplayKitExample은 [Coder’s High](http://codershigh.github.io)의 기술 블로그에 게시된 **ReplayKit으로 여행 떠나기** 포스트의 예제 입니다.   
+> ReplayKitExample은 [Coder’s High](https://codershigh.github.io/WebSite/#/)의 기술 블로그에 게시된 **ReplayKit으로 여행 떠나기** 포스트의 예제 입니다.   
 
 ## Overview
 * [ReplayKitExampleStarter](./ReplayKitExampleStarter)는 포스트의 내용을 step별로 따라할 수 있도록 만든 초기 프로젝트입니다.
